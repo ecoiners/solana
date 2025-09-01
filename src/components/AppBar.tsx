@@ -35,19 +35,6 @@ export const AppBar: FC = (props) => {
 						  <img src="assets/images/logo1.png" alt="logo" className="h-10 rounded-[50%]"/>
 						</a>
 						
-						<div className="ms-auto flex items-center px-2.5 lg:hidden">
-						  <button 
-							  className="hs-collapse-toggle bg-default-100/5 inline-flex h-9 w-12 items-center justify-center rounded-md border border-white/20"
-								type="button" 
-								data-hs-collapse="#mobileMenu"
-								data-hs-type="collapse"
-							>	
-								<i className="stroke-white" data-lucide="menu">
-								  <LuMenu/>
-								</i>	
-							</button>	
-						</div>
-						
 						<div className="hs-collapse mx-auto mt-2 hidden grow basis-full items-center justify-center transition-all duration-300 lg:mt-0 lg:flex lg:basis-auto" id="mobileMenu">
 						  <ul id="navbar-navlist" className="navbar-nav">
 							  {
@@ -63,6 +50,19 @@ export const AppBar: FC = (props) => {
 						</div>
 						
 						<NetworkSwitcher />
+						
+						<div className="ms-auto flex items-center px-2.5 lg:hidden">
+						  <button 
+							  className="hs-collapse-toggle bg-default-100/5 inline-flex h-9 w-12 items-center justify-center rounded-md border border-white/20"
+								type="button" 
+								data-hs-collapse="#mobileMenu"
+								data-hs-type="collapse"
+							>	
+								<i className="stroke-white" data-lucide="menu">
+								  <LuMenu/>
+								</i>	
+							</button>	
+						</div>
 					</nav>
 				</div>
 			</header>

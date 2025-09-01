@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 
-export const CreateView: FC = () => {
+export const ContactView: FC = () => {
   return (
     <div>index</div>
-  );
+  )
 };

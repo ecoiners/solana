@@ -1,9 +1,11 @@
-import React from 'react'
-
-const index = () => {
-  return (
-    <div>index halo</div>
-  )
-}
-
-export default index;
+export {AirdropView} from "./airdrop";
+export {ContactView} from "./contact";
+export {CreateView} from "./create";
+export {DonateView} from "./donate";
+export {FaqView} from "./faq";
+export {FeatureView} from "./feature";
+export {HomeView} from "./home";
+export {InputView} from "./input";
+export {OfferView} from "./offer";
+export {TokenMetadata} from './tokenMetadata';
+export {ToolsView} from "./tools";
