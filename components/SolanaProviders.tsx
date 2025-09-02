@@ -6,13 +6,12 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import {
   PhantomWalletAdapter,
-  SolflareWalletAdapter,
-  BraveWalletAdapter,
-} from "@solana/wallet-adapter-wallets";
+} from "@solana/wallet-adapter-phantom";
 
-import "@solana/wallet-adapter-react-ui/styles.css";
+import {BraveWalletAdapter} from "@solana/wallet-adapter-brave";
+import {SolflareWalletAdapter} from "@solana/wallet-adapter-solflare";
 
-export default function SolanaProviders({ children }: { children: React.ReactNode }) {
+export function SolanaProviders({ children }: { children: React.ReactNode }) {
   const cluster = (process.env.NEXT_PUBLIC_SOLANA_CLUSTER as string) || "mainnet-beta";
 
   const endpoint =
@@ -33,4 +32,3 @@ export default function SolanaProviders({ children }: { children: React.ReactNod
     </ConnectionProvider>
   );
 }
-
