@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {WalletModal} from "./WalletModal";
+import WalletModal from "./WalletModal";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function WalletButton() {
