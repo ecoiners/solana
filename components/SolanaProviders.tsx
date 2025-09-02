@@ -1,23 +1,24 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
-import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
-import { SolflareWalletAdapter } from "@solana/wallet-adapter-solflare";
-import { BraveWalletAdapter } from "@solana/wallet-adapter-brave";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { clusterApiUrl } from "@solana/web3.js";
+import {
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+  BraveWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
 
-interface SolanaProvidersProps {
-  children: React.ReactNode;
-  initialNetwork?: "mainnet-beta" | "devnet";
-}
+import "@solana/wallet-adapter-react-ui/styles.css";
 
-export default function SolanaProviders({ children, initialNetwork = "mainnet-beta" }: SolanaProvidersProps) {
-  const [network, setNetwork] = useState(initialNetwork);
+export function SolanaProviders({ children }: { children: React.ReactNode }) {
+  const cluster = (process.env.NEXT_PUBLIC_SOLANA_CLUSTER as string) || "mainnet-beta";
 
   const endpoint =
-    network === "mainnet-beta"
+    cluster === "mainnet-beta"
       ? "https://solana-mainnet.g.alchemy.com/v2/ocWMbbza8WgJCbjOuxGNv"
-      : "https://api.devnet.solana.com";
+      : clusterApiUrl("devnet");
 
   const wallets = useMemo(
     () => [new PhantomWalletAdapter(), new SolflareWalletAdapter(), new BraveWalletAdapter()],
@@ -27,8 +28,9 @@ export default function SolanaProviders({ children, initialNetwork = "mainnet-be
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
-        {children}
+        <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
 }
+

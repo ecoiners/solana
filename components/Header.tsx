@@ -11,7 +11,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Menu } from "lucide-react";
-import WalletConnect from "./WalletConnect";
+
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+//import "@solana/wallet-adapter-react-ui/styles.css";
 
 export default function Headers() {
   const pathname = usePathname();
@@ -58,12 +60,12 @@ export default function Headers() {
 
         {/* --- Desktop Wallet --- */}
         <div className="hidden md:block">
-          <WalletConnect />
+          <WalletMultiButton className="bg-pink-500 text-white"/>
         </div>
 
         {/* --- Mobile: Wallet + Menu --- */}
         <div className="flex items-center gap-2 md:hidden">
-          <WalletConnect />
+          <WalletMultiButton className="bg-pink-500 text-white"/>
 
           <Popover>
             <PopoverTrigger asChild>
