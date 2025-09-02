@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@
 import { Input } from "@/components/ui/input";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
-export function WalletConnect() {
+export default function WalletConnect() {
   const { connected, connect, disconnect, publicKey } = useWallet();
   const [modalOpen, setModalOpen] = useState(false);
   const [balance, setBalance] = useState<number | null>(null);
