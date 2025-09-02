@@ -1,7 +1,0 @@
-import React, {FC} from 'react'
-
-export const CreateView: FC = () => {
-  return (
-    <div>index</div>
-  );
-};
