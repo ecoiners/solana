@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@
 import { Input } from "@/components/ui/input";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
-export default function WalletConnect() {
+export function WalletConnect() {
   const { connected, connect, disconnect, publicKey } = useWallet();
   const [modalOpen, setModalOpen] = useState(false);
   const [balance, setBalance] = useState<number | null>(null);
@@ -32,11 +32,16 @@ export default function WalletConnect() {
     if (!connected) setModalOpen(false);
   }, [connected]);
 
+  // Handle click: connect first, then modal
   const handleClick = async () => {
     if (!connected) {
-      await connect(); // connect dulu
+      try {
+        await connect(); // panggil langsung di onclick
+      } catch (err) {
+        console.error(err);
+      }
     } else {
-      setModalOpen(true); // baru buka modal kalau sudah connect
+      setModalOpen(true);
     }
   };
 
@@ -47,7 +52,7 @@ export default function WalletConnect() {
         onClick={handleClick}
       >
         {connected
-          ? publicKey?.toBase58().slice(0,4) + "..." + publicKey?.toBase58().slice(-4)
+          ? publicKey?.toBase58().slice(0, 4) + "..." + publicKey?.toBase58().slice(-4)
           : "Connect Wallet"}
       </Button>
 
