@@ -11,7 +11,7 @@ import {
 import {BraveWalletAdapter} from "@solana/wallet-adapter-brave";
 import {SolflareWalletAdapter} from "@solana/wallet-adapter-solflare";
 
-export function SolanaProviders({ children }: { children: React.ReactNode }) {
+export default function SolanaProviders({ children }: { children: React.ReactNode }) {
   const cluster = (process.env.NEXT_PUBLIC_SOLANA_CLUSTER as string) || "mainnet-beta";
 
   const endpoint =
