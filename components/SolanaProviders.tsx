@@ -12,7 +12,7 @@ import {
 
 import "@solana/wallet-adapter-react-ui/styles.css";
 
-export dsfault function SolanaProviders({ children }: { children: React.ReactNode }) {
+export default function SolanaProviders({ children }: { children: React.ReactNode }) {
   const cluster = (process.env.NEXT_PUBLIC_SOLANA_CLUSTER as string) || "mainnet-beta";
 
   const endpoint =
