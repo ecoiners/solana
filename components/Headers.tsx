@@ -11,7 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Menu } from "lucide-react";
-import { WalletButton } from "./WalletButton";
+import WalletButton from "./WalletButton";
 
 export default function Headers() {
   const pathname = usePathname();
