@@ -11,7 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Menu } from "lucide-react";
-import WalletButton from "./WalletButton";
+import WalletConnect from "./WalletConnect";
 
 export default function Headers() {
   const pathname = usePathname();
@@ -27,7 +27,7 @@ export default function Headers() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Left: Logo + Brand */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="relative h-12 w-12 overflow-hidden rounded-lg">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full">
             <Image
               src="/logo.png"
               alt="Darlux Logo"
@@ -58,12 +58,12 @@ export default function Headers() {
 
         {/* --- Desktop Wallet --- */}
         <div className="hidden md:block">
-          <WalletButton />
+          <WalletConnect />
         </div>
 
         {/* --- Mobile: Wallet + Menu --- */}
         <div className="flex items-center gap-2 md:hidden">
-          <WalletButton />
+          <WalletConnect />
 
           <Popover>
             <PopoverTrigger asChild>
